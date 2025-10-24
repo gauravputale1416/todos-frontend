@@ -13,7 +13,7 @@ function NewTodo() {
  });
 const[emojiOpen, setEmojiOpen] = useState(false);
 const sum=async()=>{ 
-  const response= await axios.post('http://localhost:8080/todos', taskdata);  
+  const response= await axios.post(`${import.meta.env.VOTE_API_URL}/todos`, taskdata);  
   if(response.data.success){
     alert('Task added successfully');
     setTaskdata({task:"", emoji:"���", priority:"low", done:false});
