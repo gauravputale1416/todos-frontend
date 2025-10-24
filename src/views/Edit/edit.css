@@ -64,7 +64,3 @@
   transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
 }
 .update-btn:hover { transform: translateY(-3px); }
-@ground {
-  .addform { padding: 18px; gap: 0.75rem; }
-  .title { font-size: 1rem; }
-}
