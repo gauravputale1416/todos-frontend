@@ -9,13 +9,13 @@
   padding: 26px;
   border-radius: 14px;
   background: linear-gradient(180deg, #fbfdff 0%, #eef5ff 100%);
-  border: 1px solid rgba(20,40,80,0.05);
+  border: 1px solid rgba(7, 26, 62, 0.05);
   box-shadow: 0 12px 30px rgba(16,40,80,0.08);
   backdrop-filter: blur(6px);
   transition: transform 160ms ease, box-shadow 160ms ease;
   position: relative;
   cursor: default;
-    
+    border: 2px solid black;
 }
 .addform:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(16,40,80,0.12); }
 .title { margin: 0; font-size: 1.15rem; color: #13232f; font-weight: 700; }
