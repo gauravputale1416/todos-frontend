@@ -13,10 +13,10 @@ function NewTodo() {
  });
 const[emojiOpen, setEmojiOpen] = useState(false);
 const sum=async()=>{ 
-  const response= await axios.post(`${import.meta.env.VOTE_API_URL}/todos`, taskdata);  
+  const response= await axios.post(`${import.meta.env.VITE_API_URL}/todos`, taskdata);  
   if(response.data.success){
     alert('Task added successfully');
-    setTaskdata({task:"", emoji:"���", priority:"low", done:false});
+    setTaskdata({task:"", emoji:"🚀", priority:"low", done:false});
   }
   
   setTimeout(()=>{window.location.href='/'}, 1000);
@@ -27,7 +27,7 @@ const sum=async()=>{
     <div className='addform'>
 
   
-      <h1 style={{ textAlign: 'center', marginBottom: '2rem', color: '#3a4668' }}>�� Add New Task</h1>
+      <h1 style={{ textAlign: 'center', marginBottom: '2rem', color: '#3a4668' }}>🆕 Add New Task</h1>
       <p>
       Task:{taskdata.task}
       <br></br>
