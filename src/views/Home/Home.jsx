@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './Home.css'
-import {BrowserRouter, Routes ,Route} from 'react-router'
+import { Link } from 'react-router-dom'
 import NewTodo from '../NewTodo/NewTodo'
-import { Link } from 'react-router' 
 
 
 
 function App() {
   const [todos, setTodos] = useState([]);
   const fetchTodos = async () => {
-    const response = await axios.get(`${import.meta.env.VOTE_API_URL}/todos`)
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/todos`)
     setTodos(response.data.data);
   }
   useEffect(() => {
     fetchTodos()
   }, []);
-const deleteTodo=async (id)=>{
-  const response= await axios.delete(`${import.meta.env.VOTE_API_URL}/todos/delete/${id}`)
-  if(response){
-    alert('Task deleted successfully')
-    fetchTodos()
-  }
-}
+ const deleteTodo=async (id)=>{
+  const response= await axios.delete(`${import.meta.env.VITE_API_URL}/todos/delete/${id}`)
+   if(response){
+     alert('Task deleted successfully')
+     fetchTodos()
+   }
+ }
   return (
     <div>
       
