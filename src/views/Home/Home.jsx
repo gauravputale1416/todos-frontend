@@ -10,14 +10,14 @@ import { Link } from 'react-router'
 function App() {
   const [todos, setTodos] = useState([]);
   const fetchTodos = async () => {
-    const response = await axios.get('http://localhost:8080/todos')
+    const response = await axios.get(`${import.meta.env.VOTE_API_URL}/todos`)
     setTodos(response.data.data);
   }
   useEffect(() => {
     fetchTodos()
   }, []);
 const deleteTodo=async (id)=>{
-  const response= await axios.delete(`http://localhost:8080/todos/delete/${id}`)
+  const response= await axios.delete(`${import.meta.env.VOTE_API_URL}/todos/delete/${id}`)
   if(response){
     alert('Task deleted successfully')
     fetchTodos()
