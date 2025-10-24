@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import './Home.css'
-import { Link } from 'react-router'
-import NewTodo from '../NewTodo/NewTodo'
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Home.css';
+import { Link } from 'react-router';
+import imgDelete from './delete.png';
+import imgEdit from './editing.png';
+import Edit from './../Edit/edit';
 
 
 function App() {
+ 
   const [todos, setTodos] = useState([]);
   const fetchTodos = async () => {
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/todos`)
@@ -16,12 +18,22 @@ function App() {
     fetchTodos()
   }, []);
  const deleteTodo=async (id)=>{
-  const response= await axios.delete(`${import.meta.env.VITE_API_URL}/todos/delete/${id}`)
+  const response= await axios.delete
+  (`${import.meta.env.VITE_API_URL}/todos/delete/${id}`)
    if(response){
      alert('Task deleted successfully')
      fetchTodos()
    }
- }
+ };
+
+const checkboxChange = async (id, done) => {
+  // send a PATCH with the updated "done" flag
+  const response = await axios.patch(`${import.meta.env.VITE_API_URL}/todos/${id}/status`, { done });
+  if (response){
+    fetchTodos();
+  };
+};
+
   return (
     <div>
       
@@ -30,6 +42,7 @@ function App() {
         const { id, task, emoji, priority, createdAt, done } = todoObj;
         return (
           <div key={id} className="cart">
+            <input type="checkbox" checked={done}  onChange={(e) => {checkboxChange(id, e.target.checked)}} />
             <div style={{ fontSize: '2.2rem', marginRight: '20px' }}>{emoji}</div>
             <div style={{ flex: 1 }}>
               <h2
@@ -63,7 +76,7 @@ function App() {
                 >
                   {new Date(createdAt).toLocaleDateString()}
                 </span>
-                <span
+                <span className={'icon-done' + (done? ' done-ok' : '')}
                   style={{
                     fontWeight: 600,
                     color: done ? '#22c55e' : '#f59e42',
@@ -73,9 +86,13 @@ function App() {
                   {done ? '✅ Done' : '⏳ Pending'}
         
                 </span>
-              <button onClick={()=>{
+                <Link to={`/edit/${id}`} >
+                <img className='edit-icon' src={imgEdit} onClick={<Edit />} ></img>
+                </Link>
+              <button className='del-button' onClick={()=>{
                 deleteTodo(id)
-              }}>Delete task</button>
+              }}>
+                <img className='icon-delete' src={imgDelete} alt="delete" /></button>
               </div>
                
             </div>

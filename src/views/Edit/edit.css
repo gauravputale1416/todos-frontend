@@ -1,5 +1,3 @@
-/* Summary: replace the old .addform block with a modern card style and add styles for .title, .you-task,
-   .input-task, .selct, .emoji-btn and .add-btn. */
 .addform{
   display: flex;
   flex-direction: column;
@@ -10,39 +8,21 @@
   width: min(460px, 94%);
   padding: 26px;
   border-radius: 14px;
-  background: linear-gradient(180deg, #ffffff 0%, #f1f7ff 100%);
-  border: 1px solid rgba(20,40,80,0.06);
+  background: linear-gradient(180deg, #fbfdff 0%, #eef5ff 100%);
+  border: 1px solid rgba(20,40,80,0.05);
   box-shadow: 0 12px 30px rgba(16,40,80,0.08);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
   transition: transform 160ms ease, box-shadow 160ms ease;
   position: relative;
   cursor: default;
+    
 }
-
-.addform:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 48px rgba(16,40,80,0.12);
-}
-
-/* header / text */
-.title {
-  margin: 0;
-  font-size: 1.15rem;
-  color: #102131;
-  font-weight: 700;
-  letter-spacing: -0.2px;
-}
-.you-task {
-  margin: 0;
-  color: #506770;
-  font-size: 0.95rem;
-  text-align: center;
-  line-height: 1.3;
-}
-
-/* controls */
-.input-task,
-.selct {
+.addform:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(16,40,80,0.12); }
+.title { margin: 0; font-size: 1.15rem; color: #13232f; font-weight: 700; }
+.your-tasks { margin: 0; color: #4b6170; font-size: 0.95rem; text-align: center; line-height: 1.3; }
+.addform input,
+.addform select,
+.addform textarea {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
@@ -52,15 +32,14 @@
   color: #12202a;
   outline: none;
   transition: box-shadow 140ms ease, border-color 140ms ease;
-  box-sizing: border-box;
 }
-.input-task:focus,
-.selct:focus {
-  border-color: rgba(124,58,237,0.85);
-  box-shadow: 0 8px 20px rgba(124,58,237,0.06);
+.addform input:focus,
+.addform select:focus,
+.addform textarea:focus {
+  border-color: rgba(124,58,237,0.9);
+  box-shadow: 0 8px 20px rgba(124,58,237,0.08);
 }
-
-/* emoji button and display */
+.selct-priority { width: 100%; }
 .emoji-btn {
   padding: 8px 12px;
   border-radius: 10px;
@@ -70,13 +49,8 @@
   cursor: pointer;
   font-weight: 600;
 }
-.selected-emoji {
-  font-size: 1.6rem;
-  margin-top: 6px;
-}
-
-/* primary add button */
-.add-btn {
+.selected-emoji { font-size: 1.6rem; margin-top: 6px; }
+.update-btn {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
@@ -89,13 +63,8 @@
   cursor: pointer;
   transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
 }
-.add-btn:hover { transform: translateY(-3px); }
-
-/* responsive */
-@media (max-width: 420px) {
+.update-btn:hover { transform: translateY(-3px); }
+@ground {
   .addform { padding: 18px; gap: 0.75rem; }
   .title { font-size: 1rem; }
-}
-.form{
-    background-color: #f6f6f6;
 }

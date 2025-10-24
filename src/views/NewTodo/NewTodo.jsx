@@ -27,8 +27,8 @@ const sum=async()=>{
     <div className='addform'>
 
   
-      <h1 style={{ textAlign: 'center', marginBottom: '2rem', color: '#3a4668' }}>🆕 Add New Task</h1>
-      <p>
+      <h1 className='title' style={{ textAlign: 'center', marginBottom: '2rem', color: '#3a4668' }}>🆕 Add New Task</h1>
+      <p className='you-task'>
       Task:{taskdata.task}
       <br></br>
       Emoji: {taskdata.emoji}
@@ -42,14 +42,14 @@ const sum=async()=>{
      
      
 
-     <input type="text" placeholder="Enter your task" value={taskdata.task} onChange={(e)=>setTaskdata({...taskdata,task:e.target.value})} />
+     <input className='input-task' type="text" placeholder="Enter your task" value={taskdata.task} onChange={(e)=>setTaskdata({...taskdata,task:e.target.value})} />
 
-     <select value={taskdata.priority} onChange={(e)=>setTaskdata({...taskdata,priority:e.target.value})} >
+     <select className='selct' value={taskdata.priority} onChange={(e)=>setTaskdata({...taskdata,priority:e.target.value})} >
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
      </select>
-    <button onClick={()=>{
+    <button className='emoji-btn' onClick={()=>{
       setEmojiOpen(!emojiOpen);
     }} >select emoji </button>
 
@@ -63,7 +63,7 @@ const sum=async()=>{
 
       open={emojiOpen}/>
      
-     <button onClick={sum}>
+     <button className='add-btn' onClick={sum}>
       Add Task
      </button>
   </div>
