@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Home.css';
 import { Link } from 'react-router';
-import imgDelete from './delete.png';
-import imgEdit from './editing.png';
-import Edit from './../Edit/edit';
+import imgDelete from './../../assets/delete.png';
+import imgEdit from './../../assets/delete.png';
+import Edit from '../Edit/Edit';
 
 
 function App() {
