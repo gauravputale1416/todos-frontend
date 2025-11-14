@@ -1,9 +1,9 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter,Route,Routes } from 'react-router';
-import App from './src/views/Home/Home';
-import NewTodo from './src/views/NewTodo/NewTodo';
-import Edit from './src/views/Edit/edit';
+import App from './views/Home/Home.jsx';
+import NewTodo from './views/NewTodo/NewTodo';
+import Edit from './views/Edit/Edit.jsx';
 
 createRoot(document.getElementById('root')).render(
 <BrowserRouter>
@@ -14,6 +14,5 @@ createRoot(document.getElementById('root')).render(
          <Route path="/edit/:id" element={<Edit />} />
     </Routes>
 </BrowserRouter>
-
 
 )
