@@ -4,7 +4,7 @@ import './Home.css';
 import { Link } from 'react-router';
 import imgDelete from "./../../assets/delete.png";
 import imgEdit from "./../../assets/editing.png";
-import Edit from '../Edit/Edit.jsx';
+
 
 function App() {
 
